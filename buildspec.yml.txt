@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Step 1 Creating the special folder structure Lambda requires..."
+      - mkdir -p nodejs
+      - cp package.json nodejs/
+      
+      - echo "Step 2 Installing the folders listed in package.json..."
+      - cd nodejs && npm install --production
+
+  build:
+    commands:
+      - echo "Step 3 Moving back to the main folder..."
+      - cd ..
+      
+      - echo "Step 4 Packing everything into a zip file..."
+      - zip -r layer.zip nodejs/
+
+artifacts:
+  files:
+    - layer.zip

@@ -1,0 +1,8 @@
+{
+  "name": "my-lambda-layer",
+  "version": "1.0.0",
+  "description": "My first automated lambda layer",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
